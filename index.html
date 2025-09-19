@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hitung Luas Bangun Datar</title>
+</head>
+<body>
+    <h2>Program Menghitung Luas Persegi Panjang, Bujur Sangkar, dan Segitiga</h2>
+
+    <script>
+        // Fungsi untuk menghitung luas persegi panjang
+        function luasPersegiPanjang(panjang, lebar) {
+            return panjang * lebar;
+        }
+
+        // Fungsi untuk menghitung luas bujur sangkar
+        function luasBujurSangkar(sisi) {
+            return sisi * sisi;
+        }
+
+        // Fungsi untuk menghitung luas segitiga
+        function luasSegitiga(alas, tinggi) {
+            return 0.5 * alas * tinggi;
+        }
+
+        // Nilai variabel (contoh saja, bisa diganti)
+        var panjang = 12;
+        var lebar = 6;
+        var sisi = 8;
+        var alas = 10;
+        var tinggi = 7;
+
+        // Cetak hasil perhitungan
+        document.write("Luas Persegi Panjang = " + luasPersegiPanjang(panjang, lebar) + "<br>");
+        document.write("Luas Bujur Sangkar = " + luasBujurSangkar(sisi) + "<br>");
+        document.write("Luas Segitiga = " + luasSegitiga(alas, tinggi) + "<br>");
+    </script>
+</body>
+</html>
