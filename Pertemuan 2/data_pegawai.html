@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Pegawai</title>
+</head>
+<body>
+    <h2>Data Pegawai</h2>
+
+    <script>
+        // Data pegawai
+        var pegawai = [
+            {nama:"dodi prayodi", umur:25, jabatan:"manajer", status:"menikah"},
+            {nama:"andi saputra", umur:23, jabatan:"asisten manajer", status:"belum menikah"},
+            {nama:"sinta rahma", umur:22, jabatan:"staff", status:"menikah"}
+        ];
+
+        // buat tabel
+        document.write("<table border='1' cellpadding='5'>");
+        document.write("<thead>");
+        document.write("<tr>");
+        document.write("<th>Nama Pegawai</th><th>Umur</th><th>Jabatan</th><th>Status</th><th>Gaji Pokok</th><th>Tunjangan Jabatan</th><th>BPJS</th><th>Tunjangan Keluarga</th><th>Total Gaji</th>");
+        document.write("</tr>");
+        document.write("</thead>");
+
+        document.write("<tbody>");
+
+        var totalSemua = 0; // untuk menampung total keseluruhan
+
+        for(var i=0; i<pegawai.length; i++){
+            var p = pegawai[i];
+            var gapok;
+
+            // tentukan gaji pokok dengan if
+            if(p.jabatan == "manajer"){
+                gapok = 15000000;
+            } else if(p.jabatan == "asisten manajer"){
+                gapok = 10000000;
+            } else if(p.jabatan == "staff"){
+                gapok = 5000000;
+            } else {
+                gapok = 0;
+            }
+
+            // hitungan tunjangan
+            var tj_jabatan = 0.15 * gapok;
+            var bpjs = 0.10 * gapok;
+            var tj_keluarga = (p.status == "menikah") ? 0.20 * gapok : 0;
+
+            // total gaji per orang
+            var total = gapok + tj_jabatan + bpjs + tj_keluarga;
+            totalSemua += total; // tambahkan ke total keseluruhan
+
+            // cetak baris
+            document.write("<tr>");
+            document.write("<td>"+p.nama+"</td>");
+            document.write("<td>"+p.umur+"</td>");
+            document.write("<td>"+p.jabatan+"</td>");
+            document.write("<td>"+p.status+"</td>");
+            document.write("<td>Rp "+gapok+"</td>");
+            document.write("<td>Rp "+tj_jabatan+"</td>");
+            document.write("<td>Rp "+bpjs+"</td>");
+            document.write("<td>Rp "+tj_keluarga+"</td>");
+            document.write("<td>Rp "+total+"</td>");
+            document.write("</tr>");
+        }
+
+        document.write("</tbody>");
+
+        // tampilkan total keseluruhan di tfoot
+        document.write("<tfoot>");
+        document.write("<tr><td colspan='8'><b>Total Semua Gaji</b></td><td><b>Rp "+totalSemua+"</b></td></tr>");
+        document.write("</tfoot>");
+
+        document.write("</table>");
+    </script>
+</body>
+</html>
