@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manajemen Produk Toko</title>
+</head>
+<body>
+    <h2>Daftar Produk Toko</h2>
+
+    <script>
+        // Array produk awal
+        let produkToko = [
+            {id: 1, nama: "Laptop", harga: 7000000, stok: 5},
+            {id: 2, nama: "Mouse", harga: 200000, stok: 10},
+            {id: 3, nama: "Keyboard", harga: 350000, stok: 7}
+        ];
+
+        // Fungsi tampilkan produk
+        function tampilkanProduk() {
+            document.write("<table border='1' cellpadding='5'>");
+            document.write("<thead><tr><th>ID</th><th>Nama</th><th>Harga</th><th>Stok</th></tr></thead>");
+            document.write("<tbody>");
+            for (let i = 0; i < produkToko.length; i++) {
+                let p = produkToko[i];
+                document.write("<tr>");
+                document.write("<td>" + p.id + "</td>");
+                document.write("<td>" + p.nama + "</td>");
+                document.write("<td>" + p.harga + "</td>");
+                document.write("<td>" + p.stok + "</td>");
+                document.write("</tr>");
+            }
+            document.write("</tbody>");
+            document.write("</table><br>");
+        }
+
+        // Fungsi tambah produk
+        function tambahProduk(nama, harga, stok) {
+            let idBaru = produkToko.length + 1;
+            produkToko.push({id: idBaru, nama: nama, harga: harga, stok: stok});
+        }
+
+        // Fungsi hapus produk
+        function hapusProduk(id) {
+            for (let i = 0; i < produkToko.length; i++) {
+                if (produkToko[i].id === id) {
+                    produkToko.splice(i, 1);
+                    break;
+                }
+            }
+        }
+
+        // Menampilkan daftar awal
+        document.write("<b>Daftar Awal:</b><br>");
+        tampilkanProduk();
+
+        // Menambah produk baru
+        tambahProduk("Headset", 150000, 8);
+        document.write("<b>Setelah Tambah Produk:</b><br>");
+        tampilkanProduk();
+
+        // Hapus produk id=2 (Mouse)
+        hapusProduk(2);
+        document.write("<b>Setelah Hapus Produk ID=2:</b><br>");
+        tampilkanProduk();
+    </script>
+</body>
+</html>
